@@ -27,63 +27,70 @@
         "unit": {
             "parameters": ["image", "level", "affinity", "power"],
             "count": 1,
-            "outputs": [
-                {
-                    "images": ["*image", "border_black", "frame", "frame_affinity", "*affinity", "frame_power", "cut_line"],
-                    "text_boxes": [
-                        {
-                            "type": "level",
-                            "text": "*level"
-                        },
-                        {
-                            "type": "power",
-                            "text": "*power"
-                        }
-                    ]
-                }
-            ]
+            "front": {
+                "images": ["*image", "border_black", "frame", "frame_affinity", "*affinity", "frame_power", "cut_line"],
+                "text_boxes": [
+                    {
+                        "type": "level",
+                        "text": "*level"
+                    },
+                    {
+                        "type": "power",
+                        "text": "*power"
+                    }
+                ]
+            },
+            "back": {
+                "images": ["*image", "border_white", "frame", "frame_affinity", "*affinity", "frame_power", "cut_line"],
+                "text_boxes": [
+                    {
+                        "type": "level",
+                        "text": "*level"
+                    },
+                    {
+                        "type": "power",
+                        "text": "*power"
+                    }
+                ]
+            }
         },
         "spell": {
             "parameters": ["image", "affinity"],
-            "count": 2,
-            "outputs": [
-                {
-                    "images": ["*image", "border_grey", "frame", "frame_affinity", "*affinity", "cut_line"],
-                    "text_boxes": [
-                        {
-                            "type": "level",
-                            "text": "*level"
-                        },
-                        {
-                            "type": "power",
-                            "text": "*power"
-                        }
-                    ]
-                }
-            ]
+            "copy_front": true,
+            "front": {
+                "images": ["*image", "border_grey", "frame", "frame_affinity", "*affinity", "cut_line"],
+                "text_boxes": [
+                    {
+                        "type": "level",
+                        "text": "*level"
+                    },
+                    {
+                        "type": "power",
+                        "text": "*power"
+                    }
+                ]
+            }
         },
         "spell_wordy": {
             "parameters": ["image", "affinity", "rules_text"],
-            "count": 2,
-            "outputs": [
-                {
-                    "images": ["*image", "border_grey", "frame_wordy", "frame_affinity", "*affinity", "cut_line"],
-                    "text_boxes": [
-                        {
-                            "type": "level",
-                            "text": "*level"
-                        },
-                        {
-                            "type": "power",
-                            "text": "*power"
-                        },
-                        {
-                            "type": "rules",
-                            "text": "*rules_text"
-                        }
-                    ]
-                }
-            ]
+            "copy_front": true,
+            "front": {
+                "images": ["*image", "border_grey", "frame_wordy", "frame_affinity", "*affinity", "cut_line"],
+                "text_boxes": [
+                    {
+                        "type": "level",
+                        "text": "*level"
+                    },
+                    {
+                        "type": "power",
+                        "text": "*power"
+                    },
+                    {
+                        "type": "rules",
+                        "text": "*rules_text"
+                    }
+                ]
+            }
         }
     },
     "pieces": [
