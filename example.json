@@ -1,0 +1,145 @@
+{
+    "settings": {
+        "piece_width_cm": 2.5,
+        "piece_width_px": 512,
+        "piece_height_px": 512,
+
+        "page_width_cm": 21.59,
+        "page_height_cm": 27.94,
+        "edge_margin_cm": 0.75,
+        "piece_margin_cm": 0.5,
+
+        "image_extension": "png"
+    },
+    "text_boxes": {
+        "level": {
+            "y": 30
+        },
+        "rules": {
+            "y": 200
+        },
+        "power": {
+            "x": 200,
+            "y": 220
+        }
+    },
+    "prototypes": {
+        "unit": {
+            "parameters": ["image", "level", "affinity", "power"],
+            "count": 1,
+            "outputs": [
+                {
+                    "images": ["*image", "border_black", "frame", "frame_affinity", "*affinity", "frame_power", "cut_line"],
+                    "text_boxes": [
+                        {
+                            "type": "level",
+                            "text": "*level"
+                        },
+                        {
+                            "type": "power",
+                            "text": "*power"
+                        }
+                    ]
+                }
+            ]
+        },
+        "spell": {
+            "parameters": ["image", "affinity"],
+            "count": 2,
+            "outputs": [
+                {
+                    "images": ["*image", "border_grey", "frame", "frame_affinity", "*affinity", "cut_line"],
+                    "text_boxes": [
+                        {
+                            "type": "level",
+                            "text": "*level"
+                        },
+                        {
+                            "type": "power",
+                            "text": "*power"
+                        }
+                    ]
+                }
+            ]
+        },
+        "spell_wordy": {
+            "parameters": ["image", "affinity", "rules_text"],
+            "count": 2,
+            "outputs": [
+                {
+                    "images": ["*image", "border_grey", "frame_wordy", "frame_affinity", "*affinity", "cut_line"],
+                    "text_boxes": [
+                        {
+                            "type": "level",
+                            "text": "*level"
+                        },
+                        {
+                            "type": "power",
+                            "text": "*power"
+                        },
+                        {
+                            "type": "rules",
+                            "text": "*rules_text"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "pieces": [
+        {
+            "prototype": "unit",
+            "count": 12,
+            "parameters": {
+                "name": "Fire Savant",
+                "image": "unit_fire_1",
+                "level": "I",
+                "affinity": "affinity_fire",
+                "power": 3
+            }
+        },
+        {
+            "prototype": "unit",
+            "count": 8,
+            "parameters": {
+                "name": "Fire Savant",
+                "image": "unit_fire_2",
+                "level": "II",
+                "affinity": "affinity_fire",
+                "power": 6
+            }
+        },
+        {
+            "prototype": "unit",
+            "count": 6,
+            "parameters": {
+                "name": "Fire Savant",
+                "image": "unit_fire_3",
+                "level": "III",
+                "affinity": "affinity_fire",
+                "power": 9
+            }
+        },
+        {
+            "prototype": "spell",
+            "count": 6,
+            "parameters": {
+                "name": "Fireball",
+                "image": "spell_fireball",
+                "level": "I",
+                "affinity": "affinity_fire"
+            }
+        },
+        {
+            "prototype": "spell_wordy",
+            "count": 6,
+            "parameters": {
+                "name": "Swap",
+                "image": "spell_swap",
+                "level": "II",
+                "affinity": "",
+                "rules_text": "Swap the positions of two of your units."
+            }
+        }
+    ]
+}
