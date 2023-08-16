@@ -27,7 +27,23 @@
         "spell_curse": {
             "y": 40
         },
-        "gold": {
+        "spell_exchange": {
+            "y": -40
+        },
+        "spell_transform": {
+            "y": -130
+        },
+        "spell_portal": {
+            "y": -60
+        },
+        "gold_1": {
+            "x": -20,
+            "y": 48
+        },
+        "gold_2": {
+            "y": 96
+        },
+        "gold_3": {
             "y": 96
         }
     },
@@ -133,9 +149,9 @@
                 ]
             }
         },
-        "spell_pictogram": {
+        "spell": {
             "front": {
-                "images": ["*image", "border_grey", "frame", "*pictogram", "*affinity", "frame_type", "frame_power", "cut_line"],
+                "images": ["*image", "border_grey_spell", "frame", "*pictogram", "*affinity", "frame_type", "frame_power", "cut_line"],
                 "text_boxes": [
                     {
                         "type": "name",
@@ -161,7 +177,7 @@
             },
             "copy_front": true
         },
-        "spell_wordy": {
+        "action_wordy": {
             "front": {
                 "images": ["*image", "border_grey", "frame_wordy", "*affinity", "frame_type", "cut_line"],
                 "text_boxes": [
@@ -185,7 +201,7 @@
             },
             "copy_front": true
         },
-        "spell_wordier": {
+        "action_wordier": {
             "front": {
                 "images": ["*image", "border_grey", "frame_wordier", "*affinity", "frame_type", "cut_line"],
                 "text_boxes": [
@@ -209,22 +225,78 @@
             },
             "copy_front": true
         },
-        "gold": {
+        "aura_wordy": {
             "front": {
-                "images": ["*image", "border_black", "frame", "cut_line"],
+                "images": ["*image", "border_grey_aura", "frame_wordy", "*affinity", "frame_type", "cut_line"],
                 "text_boxes": [
                     {
                         "type": "name",
                         "text": "*name"
+                    },
+                    {
+                        "type": "level",
+                        "text": "*level"
+                    },
+                    {
+                        "type": "type",
+                        "text": "*type"
+                    },
+                    {
+                        "type": "rules",
+                        "text": "*rules_text"
+                    }
+                ]
+            },
+            "copy_front": true
+        },
+        "aura_wordier": {
+            "front": {
+                "images": ["*image", "border_grey_aura", "frame_wordier", "*affinity", "frame_type", "cut_line"],
+                "text_boxes": [
+                    {
+                        "type": "name",
+                        "text": "*name"
+                    },
+                    {
+                        "type": "level",
+                        "text": "*level"
+                    },
+                    {
+                        "type": "type",
+                        "text": "*type"
+                    },
+                    {
+                        "type": "rules_wordier",
+                        "text": "*rules_text"
+                    }
+                ]
+            },
+            "copy_front": true
+        },
+        "gold": {
+            "front": {
+                "images": ["*image", "border_black", "frame", "frame_type", "cut_line"],
+                "text_boxes": [
+                    {
+                        "type": "name",
+                        "text": "*name"
+                    },
+                    {
+                        "type": "type",
+                        "text": "*type"
                     }
                 ]
             },
             "back": {
-                "images": ["*image", "border_white", "frame", "cut_line"],
+                "images": ["*image", "border_white", "frame", "frame_type", "cut_line"],
                 "text_boxes": [
                     {
                         "type": "name",
                         "text": "*name"
+                    },
+                    {
+                        "type": "type",
+                        "text": "*type"
                     }
                 ]
             }
@@ -268,7 +340,43 @@
             }
         },
         {
-            "prototype": "spell_pictogram",
+            "prototype": "wizard",
+            "count": 12,
+            "parameters": {
+                "name": "Storm Acolyte",
+                "image": "wizard_lightning_1",
+                "level": "I",
+                "affinity": "affinity_lightning",
+                "type": "Wizard",
+                "power": "1"
+            }
+        },
+        {
+            "prototype": "wizard",
+            "count": 8,
+            "parameters": {
+                "name": "Storm Mage",
+                "image": "wizard_lightning_2",
+                "level": "II",
+                "affinity": "affinity_lightning",
+                "type": "Wizard",
+                "power": "4"
+            }
+        },
+        {
+            "prototype": "wizard",
+            "count": 6,
+            "parameters": {
+                "name": "Storm Savant",
+                "image": "wizard_lightning_3",
+                "level": "III",
+                "affinity": "affinity_lightning",
+                "type": "Wizard",
+                "power": "7"
+            }
+        },
+        {
+            "prototype": "spell",
             "count": 6,
             "parameters": {
                 "name": "Fireball",
@@ -281,19 +389,19 @@
             }
         },
         {
-            "prototype": "spell_wordy",
-            "count": 6,
+            "prototype": "action_wordy",
+            "count": 12,
             "parameters": {
-                "name": "Mark For Exile",
-                "image": "spell_skull",
+                "name": "Move",
+                "image": "spell_move",
                 "level": "I",
                 "affinity": "",
-                "type": "Aura",
-                "rules_text": "When enchanted wizard dies, exile it."
+                "type": "Action",
+                "rules_text": "Move 3."
             }
         },
         {
-            "prototype": "spell_wordy",
+            "prototype": "action_wordy",
             "count": 6,
             "parameters": {
                 "name": "Sacrifice",
@@ -301,11 +409,35 @@
                 "level": "I",
                 "affinity": "",
                 "type": "Action",
-                "rules_text": "Sacrifice a unit to draw 2 cards."
+                "rules_text": "Sacrifice a unit to draw 2 tokens."
             }
         },
         {
-            "prototype": "spell_wordy",
+            "prototype": "action_wordier",
+            "count": 6,
+            "parameters": {
+                "name": "Exchange",
+                "image": "spell_exchange",
+                "level": "I",
+                "affinity": "",
+                "type": "Action",
+                "rules_text": "Exile a token from your hand to take a token of the same level."
+            }
+        },
+        {
+            "prototype": "action_wordier",
+            "count": 6,
+            "parameters": {
+                "name": "Transmogrify",
+                "image": "spell_transform",
+                "level": "II",
+                "affinity": "",
+                "type": "Action",
+                "rules_text": "Exile a token from your hand to take a token up to one level higher."
+            }
+        },
+        {
+            "prototype": "action_wordy",
             "count": 6,
             "parameters": {
                 "name": "Swap",
@@ -317,7 +449,7 @@
             }
         },
         {
-            "prototype": "spell_wordy",
+            "prototype": "action_wordy",
             "count": 6,
             "parameters": {
                 "name": "Curse",
@@ -329,7 +461,7 @@
             }
         },
         {
-            "prototype": "spell_wordy",
+            "prototype": "action_wordy",
             "count": 2,
             "parameters": {
                 "name": "Culling Feast",
@@ -341,7 +473,7 @@
             }
         },
         {
-            "prototype": "spell_wordy",
+            "prototype": "action_wordy",
             "count": 6,
             "parameters": {
                 "name": "Affinity",
@@ -353,7 +485,7 @@
             }
         },
         {
-            "prototype": "spell_wordy",
+            "prototype": "action_wordy",
             "count": 6,
             "parameters": {
                 "name": "Command",
@@ -365,7 +497,19 @@
             }
         },
         {
-            "prototype": "spell_wordy",
+            "prototype": "aura_wordy",
+            "count": 6,
+            "parameters": {
+                "name": "Mark For Exile",
+                "image": "spell_skull",
+                "level": "I",
+                "affinity": "",
+                "type": "Aura",
+                "rules_text": "When enchanted wizard dies, exile it."
+            }
+        },
+        {
+            "prototype": "aura_wordy",
             "count": 6,
             "parameters": {
                 "name": "Fire Charm",
@@ -377,19 +521,31 @@
             }
         },
         {
-            "prototype": "spell_wordy",
+            "prototype": "aura_wordier",
             "count": 6,
             "parameters": {
-                "name": "Fire Charm",
-                "image": "spell_charm_fire",
+                "name": "Teleportals",
+                "image": "spell_portal",
+                "level": "I",
+                "affinity": "",
+                "type": "Aura",
+                "rules_text": "When enchanted wizard casts a spell, it may move to an empty attacked space instead."
+            }
+        },
+        {
+            "prototype": "aura_wordier",
+            "count": 6,
+            "parameters": {
+                "name": "Thunder Boon",
+                "image": "spell_boon_lightning",
                 "level": "II",
-                "affinity": "affinity_fire",
+                "affinity": "affinity_lightning",
                 "type": "Aura",
                 "rules_text": "+4 Power. Your opponent may put wizards killed by this directly into their hand or bag."
             }
         },
         {
-            "prototype": "spell_wordy",
+            "prototype": "aura_wordy",
             "count": 6,
             "parameters": {
                 "name": "The Chosen",
@@ -401,7 +557,7 @@
             }
         },
         {
-            "prototype": "spell_wordy",
+            "prototype": "aura_wordy",
             "count": 6,
             "parameters": {
                 "name": "Mourner",
@@ -409,11 +565,11 @@
                 "level": "II",
                 "affinity": "affinity_sword",
                 "type": "Aura",
-                "rules_text": "When an adjacent wizard dies, draw a card."
+                "rules_text": "When an adjacent wizard dies, draw a token."
             }
         },
         {
-            "prototype": "spell_wordy",
+            "prototype": "aura_wordy",
             "count": 2,
             "parameters": {
                 "name": "Doom Touch",
@@ -425,7 +581,7 @@
             }
         },
         {
-            "prototype": "spell_wordy",
+            "prototype": "aura_wordier",
             "count": 2,
             "parameters": {
                 "name": "Mind Control",
@@ -437,7 +593,7 @@
             }
         },
         {
-            "prototype": "spell_wordy",
+            "prototype": "aura_wordy",
             "count": 4,
             "parameters": {
                 "name": "Intellect",
@@ -445,15 +601,34 @@
                 "level": "III",
                 "affinity": "affinity_lightning",
                 "type": "Aura",
-                "rules_text": "When enchanted wizard kills, draw a card"
+                "rules_text": "When enchanted wizard kills, draw a token."
             }
         },
         {
             "prototype": "gold",
             "count": 6,
             "parameters": {
-                "name": "Treasure",
-                "image": "gold"
+                "name": "Gold Coin",
+                "image": "gold_1",
+                "type": "Buy I"
+            }
+        },
+        {
+            "prototype": "gold",
+            "count": 6,
+            "parameters": {
+                "name": "Chest of Gold",
+                "image": "gold_2",
+                "type": "Buy II"
+            }
+        },
+        {
+            "prototype": "gold",
+            "count": 6,
+            "parameters": {
+                "name": "Horde of Gold",
+                "image": "gold_3",
+                "type": "Buy III"
             }
         }
     ]
