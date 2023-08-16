@@ -38,26 +38,27 @@ def convert_value(value, parameters):
     return value
 
 def wrap_text(text, font_size, width):
-    width_factor = 0.6
+    width_factor = 0.5
 
     wrapped_text = ""
     word = ""
-    line_width = 0
+    line_chars = 0
     lines = 1
     text += "\n"
     for char in text:
         if char in [' ', '-', '\n']:
-            if line_width >= width:
+            if line_chars * font_size * width_factor >= width:
                 wrapped_text += '\n' + word + char
+                line_chars = len(word) + 1
                 word = ""
-                line_width = 0
                 lines += 1
             else:
                 wrapped_text += word + char
                 word = ""
+                line_chars += 1
         else:
             word += char
-            line_width += font_size * width_factor
+            line_chars += 1
 
     return wrapped_text, lines
 
@@ -83,6 +84,10 @@ def fit_text(text, max_font_size, x1, y1, x2, y2):
     return 1
 
 def build_piece(piece, data):
+    # Print
+    if "parameters" in piece and "name" in piece["parameters"]:
+        print(f'Generating [{piece["parameters"]["name"]}]...')
+
     # Get prototype for this piece
     prototype = data["prototypes"][piece["prototype"]]
 
@@ -201,6 +206,7 @@ def main():
         pages = math.ceil(len(piece_images["front"]) / pieces_per_page)
 
         # Arrange images on page
+        print("Arranging final layout...")
         for i in range(pages):
             # Create page image
             page_image_front = Image.new('RGBA', (page_width, page_height))
@@ -239,6 +245,8 @@ def main():
                 page_image_front.save(f"results/page_{i+1}_front.{extension}")
             if page_edits_back > 0:
                 page_image_back.save(f"results/page_{i+1}_back.{extension}")
+
+        print("Done!")
 
 
 main()

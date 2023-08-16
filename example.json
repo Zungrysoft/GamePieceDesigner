@@ -31,9 +31,25 @@
             "font_size": 50,
             "color": "black",
             "x": 48,
+            "y": 336,
+            "x2": 464,
+            "y2": 416
+        },
+        "rules_wordier": {
+            "mode": "box",
+            "font_size": 50,
+            "color": "black",
+            "x": 48,
             "y": 272,
             "x2": 464,
             "y2": 416
+        },
+        "type": {
+            "mode": "center",
+            "font_size": 50,
+            "color": "black",
+            "x": 256,
+            "y": 464
         },
         "power": {
             "mode": "center",
@@ -46,7 +62,7 @@
     "prototypes": {
         "unit": {
             "front": {
-                "images": ["*image", "border_black", "frame", "*affinity", "frame_power", "cut_line"],
+                "images": ["*image", "border_black", "frame", "*affinity", "frame_type", "frame_power", "cut_line"],
                 "text_boxes": [
                     {
                         "type": "name",
@@ -55,6 +71,10 @@
                     {
                         "type": "level",
                         "text": "*level"
+                    },
+                    {
+                        "type": "type",
+                        "text": "*type"
                     },
                     {
                         "type": "power",
@@ -63,7 +83,7 @@
                 ]
             },
             "back": {
-                "images": ["*image", "border_white", "frame", "*affinity", "frame_power", "cut_line"],
+                "images": ["*image", "border_white", "frame", "*affinity", "frame_type", "frame_power", "cut_line"],
                 "text_boxes": [
                     {
                         "type": "name",
@@ -72,6 +92,10 @@
                     {
                         "type": "level",
                         "text": "*level"
+                    },
+                    {
+                        "type": "type",
+                        "text": "*type"
                     },
                     {
                         "type": "power",
@@ -82,7 +106,7 @@
         },
         "spell": {
             "front": {
-                "images": ["*image", "border_grey", "frame", "*affinity", "cut_line"],
+                "images": ["*image", "border_grey", "frame", "*affinity", "frame_type", "cut_line"],
                 "text_boxes": [
                     {
                         "type": "name",
@@ -91,6 +115,10 @@
                     {
                         "type": "level",
                         "text": "*level"
+                    },
+                    {
+                        "type": "type",
+                        "text": "*type"
                     }
                 ]
             },
@@ -98,7 +126,7 @@
         },
         "spell_wordy": {
             "front": {
-                "images": ["*image", "border_grey", "frame_wordy", "*affinity", "cut_line"],
+                "images": ["*image", "border_grey", "frame_wordy", "*affinity", "frame_type", "cut_line"],
                 "text_boxes": [
                     {
                         "type": "name",
@@ -109,7 +137,35 @@
                         "text": "*level"
                     },
                     {
+                        "type": "type",
+                        "text": "*type"
+                    },
+                    {
                         "type": "rules",
+                        "text": "*rules_text"
+                    }
+                ]
+            },
+            "copy_front": true
+        },
+        "spell_wordier": {
+            "front": {
+                "images": ["*image", "border_grey", "frame_wordier", "*affinity", "frame_type", "cut_line"],
+                "text_boxes": [
+                    {
+                        "type": "name",
+                        "text": "*name"
+                    },
+                    {
+                        "type": "level",
+                        "text": "*level"
+                    },
+                    {
+                        "type": "type",
+                        "text": "*type"
+                    },
+                    {
+                        "type": "rules_wordier",
                         "text": "*rules_text"
                     }
                 ]
@@ -124,6 +180,7 @@
             "parameters": {
                 "name": "Fire Acolyte",
                 "image": "unit_fire_1",
+                "type": "Wizard",
                 "level": "I",
                 "affinity": "affinity_fire",
                 "power": 3
@@ -133,8 +190,9 @@
             "prototype": "unit",
             "count": 8,
             "parameters": {
-                "name": "Fire Wizard",
+                "name": "Fire Mage",
                 "image": "unit_fire_2",
+                "type": "Wizard",
                 "level": "II",
                 "affinity": "affinity_fire",
                 "power": 6
@@ -146,6 +204,7 @@
             "parameters": {
                 "name": "Fire Savant",
                 "image": "unit_fire_3",
+                "type": "Wizard",
                 "level": "III",
                 "affinity": "affinity_fire",
                 "power": 9
@@ -157,6 +216,7 @@
             "parameters": {
                 "name": "Fireball",
                 "image": "spell_fireball",
+                "type": "Spell",
                 "level": "I",
                 "affinity": "affinity_fire"
             }
@@ -167,9 +227,34 @@
             "parameters": {
                 "name": "Swap",
                 "image": "spell_swap",
+                "type": "Spell",
                 "level": "II",
                 "affinity": "",
                 "rules_text": "Swap the positions of two of your units."
+            }
+        },
+        {
+            "prototype": "spell_wordy",
+            "count": 6,
+            "parameters": {
+                "name": "Mark For Exile",
+                "image": "spell_skull",
+                "type": "Aura",
+                "level": "I",
+                "affinity": "",
+                "rules_text": "When enchanted unit dies, exile it."
+            }
+        },
+        {
+            "prototype": "spell_wordy",
+            "count": 6,
+            "parameters": {
+                "name": "Fire Charm",
+                "image": "spell_charm_fire",
+                "type": "Aura",
+                "level": "I",
+                "affinity": "affinity_fire",
+                "rules_text": "+3 Power"
             }
         }
     ]
