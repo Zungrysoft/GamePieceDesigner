@@ -13,18 +13,26 @@ def blend_images(base_img, overlay_img, position=(0, 0)):
     overlay_np = np.array(overlay_img).copy()
 
     x1, y1 = position
-    x2, y2 = x1 + overlay_img.width, y1 + overlay_img.height
+    x2, y2 = min(x1 + overlay_img.width, base_img.width), min(y1 + overlay_img.height, base_img.height)
+
+    # Determine overlay slicing based on position (handles negative offsets)
+    ox1, oy1 = max(0, -x1), max(0, -y1)
+    ox2, oy2 = overlay_img.width + min(0, base_img.width - x1 - overlay_img.width), overlay_img.height + min(0, base_img.height - y1 - overlay_img.height)
+
+    # Adjust base image slicing to remain within valid bounds
+    x1, y1 = max(x1, 0), max(y1, 0)
+    x2, y2 = min(x2, base_img.width), min(y2, base_img.height)
 
     # Alpha blending
     alpha_base = base_np[y1:y2, x1:x2, 3] / 255.0
-    alpha_overlay = overlay_np[:, :, 3] / 255.0
+    alpha_overlay = overlay_np[oy1:oy2, ox1:ox2, 3] / 255.0
     alpha_out = alpha_overlay + alpha_base * (1 - alpha_overlay)
 
-    base_np[y1:y2, x1:x2, 3] = alpha_out * 255
+    base_np[y1:y2, x1:x2, 3] = (alpha_out * 255).astype(np.uint8)
     base_np[y1:y2, x1:x2, :3] = (
-        (overlay_np[:, :, :3] * alpha_overlay[:, :, np.newaxis]) +
+        (overlay_np[oy1:oy2, ox1:ox2, :3] * alpha_overlay[:, :, np.newaxis]) +
         (base_np[y1:y2, x1:x2, :3] * alpha_base[:, :, np.newaxis] * (1 - alpha_overlay[:, :, np.newaxis]))
-    )
+    ).astype(np.uint8)
 
     return Image.fromarray(base_np)
 
@@ -123,8 +131,17 @@ def build_piece(piece, data):
             # Open image
             image = Image.open(f"images/{image_name}.{extension}").convert('RGBA')
 
+            # Get image offset
+            x = 0
+            y = 0
+            if "image_settings" in data and image_name in data["image_settings"]:
+                if "x" in data["image_settings"][image_name]:
+                    x = data["image_settings"][image_name]["x"]
+                if "y" in data["image_settings"][image_name]:
+                    y = data["image_settings"][image_name]["y"]
+
             # Layer the image over the combined image
-            combined_image = blend_images(combined_image, image, (0, 0))
+            combined_image = blend_images(combined_image, image, (x, y))
 
         # Add text layers
         for box_settings in output["text_boxes"]:

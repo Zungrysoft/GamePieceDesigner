@@ -11,6 +11,23 @@
 
         "image_extension": "png"
     },
+    "image_settings": {
+        "spell_sacrifice": {
+            "y": -100
+        },
+        "spell_skull": {
+            "y": -20
+        },
+        "spell_swap": {
+            "y": -20
+        },
+        "spell_chosen": {
+            "y": -30
+        },
+        "spell_curse": {
+            "y": 40
+        }
+    },
     "text_boxes": {
         "name": {
             "mode": "left",
@@ -60,7 +77,7 @@
         }
     },
     "prototypes": {
-        "unit": {
+        "wizard": {
             "front": {
                 "images": ["*image", "border_black", "frame", "*affinity", "frame_type", "frame_power", "cut_line"],
                 "text_boxes": [
@@ -175,11 +192,11 @@
     },
     "pieces": [
         {
-            "prototype": "unit",
+            "prototype": "wizard",
             "count": 12,
             "parameters": {
                 "name": "Fire Acolyte",
-                "image": "unit_fire_1",
+                "image": "wizard_fire_1",
                 "type": "Wizard",
                 "level": "I",
                 "affinity": "affinity_fire",
@@ -187,11 +204,11 @@
             }
         },
         {
-            "prototype": "unit",
+            "prototype": "wizard",
             "count": 8,
             "parameters": {
                 "name": "Fire Mage",
-                "image": "unit_fire_2",
+                "image": "wizard_fire_2",
                 "type": "Wizard",
                 "level": "II",
                 "affinity": "affinity_fire",
@@ -199,11 +216,11 @@
             }
         },
         {
-            "prototype": "unit",
+            "prototype": "wizard",
             "count": 6,
             "parameters": {
                 "name": "Fire Savant",
-                "image": "unit_fire_3",
+                "image": "wizard_fire_3",
                 "type": "Wizard",
                 "level": "III",
                 "affinity": "affinity_fire",
@@ -223,6 +240,42 @@
         },
         {
             "prototype": "spell_wordy",
+            "count": 2,
+            "parameters": {
+                "name": "Culling Feast",
+                "image": "spell_swirl",
+                "type": "Spell",
+                "level": "II-L",
+                "affinity": "",
+                "rules_text": "Exile up to five of your own wizards."
+            }
+        },
+        {
+            "prototype": "spell_wordy",
+            "count": 6,
+            "parameters": {
+                "name": "Curse",
+                "image": "spell_curse",
+                "type": "Spell",
+                "level": "II",
+                "affinity": "",
+                "rules_text": "You may play an aura on an enemy wizard."
+            }
+        },
+        {
+            "prototype": "spell_wordy",
+            "count": 6,
+            "parameters": {
+                "name": "Sacrifice",
+                "image": "spell_sacrifice",
+                "type": "Spell",
+                "level": "I",
+                "affinity": "",
+                "rules_text": "Sacrifice a unit to draw 2 cards."
+            }
+        },
+        {
+            "prototype": "spell_wordy",
             "count": 6,
             "parameters": {
                 "name": "Swap",
@@ -230,7 +283,7 @@
                 "type": "Spell",
                 "level": "II",
                 "affinity": "",
-                "rules_text": "Swap the positions of two of your units."
+                "rules_text": "Swap the positions of two of your wizards."
             }
         },
         {
@@ -242,7 +295,19 @@
                 "type": "Aura",
                 "level": "I",
                 "affinity": "",
-                "rules_text": "When enchanted unit dies, exile it."
+                "rules_text": "When enchanted wizard dies, exile it."
+            }
+        },
+        {
+            "prototype": "spell_wordy",
+            "count": 6,
+            "parameters": {
+                "name": "The Chosen",
+                "image": "spell_chosen",
+                "type": "Aura",
+                "level": "II",
+                "affinity": "",
+                "rules_text": "When enchanted wizard dies, you may put in into your hand."
             }
         },
         {
