@@ -28,10 +28,12 @@
         },
         "rules": {
             "mode": "box",
-            "font_size": 20,
+            "font_size": 50,
             "color": "black",
             "x": 48,
-            "y": 272
+            "y": 272,
+            "x2": 464,
+            "y2": 416
         },
         "power": {
             "mode": "center",
@@ -44,7 +46,7 @@
     "prototypes": {
         "unit": {
             "front": {
-                "images": ["*image", "border_black", "frame", "frame_affinity", "*affinity", "frame_power", "cut_line"],
+                "images": ["*image", "border_black", "frame", "*affinity", "frame_power", "cut_line"],
                 "text_boxes": [
                     {
                         "type": "name",
@@ -61,7 +63,7 @@
                 ]
             },
             "back": {
-                "images": ["*image", "border_white", "frame", "frame_affinity", "*affinity", "frame_power", "cut_line"],
+                "images": ["*image", "border_white", "frame", "*affinity", "frame_power", "cut_line"],
                 "text_boxes": [
                     {
                         "type": "name",
@@ -80,7 +82,7 @@
         },
         "spell": {
             "front": {
-                "images": ["*image", "border_grey", "frame", "frame_affinity", "*affinity", "cut_line"],
+                "images": ["*image", "border_grey", "frame", "*affinity", "cut_line"],
                 "text_boxes": [
                     {
                         "type": "name",
@@ -96,7 +98,7 @@
         },
         "spell_wordy": {
             "front": {
-                "images": ["*image", "border_grey", "frame_wordy", "frame_affinity", "*affinity", "cut_line"],
+                "images": ["*image", "border_grey", "frame_wordy", "*affinity", "cut_line"],
                 "text_boxes": [
                     {
                         "type": "name",

@@ -37,6 +37,50 @@ def convert_value(value, parameters):
     # Normal value
     return value
 
+def wrap_text(text, font_size, width):
+    width_factor = 0.6
+
+    wrapped_text = ""
+    word = ""
+    line_width = 0
+    lines = 1
+    text += "\n"
+    for char in text:
+        if char in [' ', '-', '\n']:
+            if line_width >= width:
+                wrapped_text += '\n' + word + char
+                word = ""
+                line_width = 0
+                lines += 1
+            else:
+                wrapped_text += word + char
+                word = ""
+        else:
+            word += char
+            line_width += font_size * width_factor
+
+    return wrapped_text, lines
+
+def fit_text(text, max_font_size, x1, y1, x2, y2):
+    height_factor = 1.167
+
+    # Calculate box width and height
+    width = abs(x1 - x2)
+    height = abs(y1 - y2)
+
+    # Keep trying smaller and smaller font sizes until the text fits
+    font_size = max_font_size
+    while font_size > 1:
+        wrapped_text, lines = wrap_text(text, font_size, width)
+
+        # Check if the total height of the text exceeds the box height
+        if lines * font_size * height_factor <= height:
+            return wrapped_text, font_size
+        else:
+            font_size -= 1
+
+    # Return 1 as a fallback
+    return 1
 
 def build_piece(piece, data):
     # Get prototype for this piece
@@ -83,18 +127,26 @@ def build_piece(piece, data):
             box = data["text_boxes"][box_settings["type"]]
 
             # Set parameters
-            font_size = box["font_size"]
-            color = box["color"]
-            x = box["x"]
-            y = box["y"]
+            font_size = int(box["font_size"]) if "font_size" in box else 30
+            color = box["color"] if "color" in box else "black"
+            x = box["x"] if "x" in box else 0
+            y = box["y"] if "y" in box else 0
+            x2 = box["x2"] if "x2" in box else 512
+            y2 = box["y2"] if "y2" in box else 512
             text = str(convert_value(box_settings["text"], piece["parameters"]))
+
+            # Text anchoring
             anchor_map = {
                 "left": "lm",
                 "right": "rm",
                 "center": "mm",
-                "box": "lt"
+                "box": None
             }
             anchor = anchor_map[box["mode"]]
+
+            # Text wrapping for box mode
+            if box["mode"] == "box":
+                text, font_size = fit_text(text, font_size, x, y, x2, y2)
 
             font = ImageFont.truetype("Tests/fonts/NotoSans-Regular.ttf", font_size)
             d = ImageDraw.Draw(combined_image)
