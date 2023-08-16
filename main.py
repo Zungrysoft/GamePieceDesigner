@@ -1,4 +1,4 @@
-from PIL import Image
+from PIL import Image, ImageDraw, ImageFont
 import numpy as np
 import sys
 import json
@@ -28,6 +28,16 @@ def blend_images(base_img, overlay_img, position=(0, 0)):
 
     return Image.fromarray(base_np)
 
+def convert_value(value, parameters):
+    # Convert from value to parameter if starts with *
+    if value[0] == '*':
+        param = value[1:]
+        return parameters[param]
+
+    # Normal value
+    return value
+
+
 def build_piece(piece, data):
     # Get prototype for this piece
     prototype = data["prototypes"][piece["prototype"]]
@@ -54,10 +64,8 @@ def build_piece(piece, data):
 
         # Add image layers
         for image_name in output["images"]:
-            # Parameter
-            if image_name[0] == '*':
-                param = image_name[1:]
-                image_name = piece["parameters"][param]
+            # Convert if it is a special value
+            image_name = convert_value(image_name, piece["parameters"])
 
             # Check for empty image
             if len(image_name) == 0:
@@ -68,6 +76,29 @@ def build_piece(piece, data):
 
             # Layer the image over the combined image
             combined_image = blend_images(combined_image, image, (0, 0))
+
+        # Add text layers
+        for box_settings in output["text_boxes"]:
+            # Get text box data
+            box = data["text_boxes"][box_settings["type"]]
+
+            # Set parameters
+            font_size = box["font_size"]
+            color = box["color"]
+            x = box["x"]
+            y = box["y"]
+            text = str(convert_value(box_settings["text"], piece["parameters"]))
+            anchor_map = {
+                "left": "lm",
+                "right": "rm",
+                "center": "mm",
+                "box": "lt"
+            }
+            anchor = anchor_map[box["mode"]]
+
+            font = ImageFont.truetype("Tests/fonts/NotoSans-Regular.ttf", font_size)
+            d = ImageDraw.Draw(combined_image)
+            d.text((x, y), text, fill=color, anchor=anchor, font=font)
 
         # Append to results
         results[side].append(combined_image)

@@ -12,24 +12,44 @@
         "image_extension": "png"
     },
     "text_boxes": {
+        "name": {
+            "mode": "left",
+            "font_size": 50,
+            "color": "black",
+            "x": 48,
+            "y": 64
+        },
         "level": {
-            "y": 30
+            "mode": "right",
+            "font_size":  50,
+            "color": "black",
+            "x": 464,
+            "y": 64
         },
         "rules": {
-            "y": 200
+            "mode": "box",
+            "font_size": 20,
+            "color": "black",
+            "x": 48,
+            "y": 272
         },
         "power": {
-            "x": 200,
-            "y": 220
+            "mode": "center",
+            "font_size": 50,
+            "color": "black",
+            "x": 464,
+            "y": 464
         }
     },
     "prototypes": {
         "unit": {
-            "parameters": ["image", "level", "affinity", "power"],
-            "count": 1,
             "front": {
                 "images": ["*image", "border_black", "frame", "frame_affinity", "*affinity", "frame_power", "cut_line"],
                 "text_boxes": [
+                    {
+                        "type": "name",
+                        "text": "*name"
+                    },
                     {
                         "type": "level",
                         "text": "*level"
@@ -44,6 +64,10 @@
                 "images": ["*image", "border_white", "frame", "frame_affinity", "*affinity", "frame_power", "cut_line"],
                 "text_boxes": [
                     {
+                        "type": "name",
+                        "text": "*name"
+                    },
+                    {
                         "type": "level",
                         "text": "*level"
                     },
@@ -55,42 +79,40 @@
             }
         },
         "spell": {
-            "parameters": ["image", "affinity"],
-            "copy_front": true,
             "front": {
                 "images": ["*image", "border_grey", "frame", "frame_affinity", "*affinity", "cut_line"],
                 "text_boxes": [
                     {
-                        "type": "level",
-                        "text": "*level"
+                        "type": "name",
+                        "text": "*name"
                     },
                     {
-                        "type": "power",
-                        "text": "*power"
+                        "type": "level",
+                        "text": "*level"
                     }
                 ]
-            }
+            },
+            "copy_front": true
         },
         "spell_wordy": {
-            "parameters": ["image", "affinity", "rules_text"],
-            "copy_front": true,
             "front": {
                 "images": ["*image", "border_grey", "frame_wordy", "frame_affinity", "*affinity", "cut_line"],
                 "text_boxes": [
                     {
-                        "type": "level",
-                        "text": "*level"
+                        "type": "name",
+                        "text": "*name"
                     },
                     {
-                        "type": "power",
-                        "text": "*power"
+                        "type": "level",
+                        "text": "*level"
                     },
                     {
                         "type": "rules",
                         "text": "*rules_text"
                     }
                 ]
-            }
+            },
+            "copy_front": true
         }
     },
     "pieces": [
@@ -98,7 +120,7 @@
             "prototype": "unit",
             "count": 12,
             "parameters": {
-                "name": "Fire Savant",
+                "name": "Fire Acolyte",
                 "image": "unit_fire_1",
                 "level": "I",
                 "affinity": "affinity_fire",
@@ -109,7 +131,7 @@
             "prototype": "unit",
             "count": 8,
             "parameters": {
-                "name": "Fire Savant",
+                "name": "Fire Wizard",
                 "image": "unit_fire_2",
                 "level": "II",
                 "affinity": "affinity_fire",
