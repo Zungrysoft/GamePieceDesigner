@@ -26,6 +26,9 @@
         },
         "spell_curse": {
             "y": 40
+        },
+        "gold": {
+            "y": 96
         }
     },
     "text_boxes": {
@@ -58,6 +61,15 @@
             "color": "black",
             "x": 48,
             "y": 272,
+            "x2": 464,
+            "y2": 416
+        },
+        "rules_pictogram": {
+            "mode": "box",
+            "font_size": 50,
+            "color": "black",
+            "x": 48,
+            "y": 240,
             "x2": 464,
             "y2": 416
         },
@@ -121,9 +133,9 @@
                 ]
             }
         },
-        "spell": {
+        "spell_pictogram": {
             "front": {
-                "images": ["*image", "border_grey", "frame", "*affinity", "frame_type", "cut_line"],
+                "images": ["*image", "border_grey", "frame", "*pictogram", "*affinity", "frame_type", "frame_power", "cut_line"],
                 "text_boxes": [
                     {
                         "type": "name",
@@ -136,6 +148,14 @@
                     {
                         "type": "type",
                         "text": "*type"
+                    },
+                    {
+                        "type": "power",
+                        "text": "*power"
+                    },
+                    {
+                        "type": "rules_pictogram",
+                        "text": "*rules_text"
                     }
                 ]
             },
@@ -188,6 +208,26 @@
                 ]
             },
             "copy_front": true
+        },
+        "gold": {
+            "front": {
+                "images": ["*image", "border_black", "frame", "cut_line"],
+                "text_boxes": [
+                    {
+                        "type": "name",
+                        "text": "*name"
+                    }
+                ]
+            },
+            "back": {
+                "images": ["*image", "border_white", "frame", "cut_line"],
+                "text_boxes": [
+                    {
+                        "type": "name",
+                        "text": "*name"
+                    }
+                ]
+            }
         }
     },
     "pieces": [
@@ -197,10 +237,10 @@
             "parameters": {
                 "name": "Fire Acolyte",
                 "image": "wizard_fire_1",
-                "type": "Wizard",
                 "level": "I",
                 "affinity": "affinity_fire",
-                "power": 3
+                "type": "Wizard",
+                "power": "3"
             }
         },
         {
@@ -209,10 +249,10 @@
             "parameters": {
                 "name": "Fire Mage",
                 "image": "wizard_fire_2",
-                "type": "Wizard",
                 "level": "II",
                 "affinity": "affinity_fire",
-                "power": 6
+                "type": "Wizard",
+                "power": "6"
             }
         },
         {
@@ -221,45 +261,35 @@
             "parameters": {
                 "name": "Fire Savant",
                 "image": "wizard_fire_3",
-                "type": "Wizard",
                 "level": "III",
                 "affinity": "affinity_fire",
-                "power": 9
+                "type": "Wizard",
+                "power": "9"
             }
         },
         {
-            "prototype": "spell",
+            "prototype": "spell_pictogram",
             "count": 6,
             "parameters": {
                 "name": "Fireball",
                 "image": "spell_fireball",
-                "type": "Spell",
+                "pictogram": "pictogram_directional_3",
                 "level": "I",
-                "affinity": "affinity_fire"
-            }
-        },
-        {
-            "prototype": "spell_wordy",
-            "count": 2,
-            "parameters": {
-                "name": "Culling Feast",
-                "image": "spell_swirl",
+                "affinity": "affinity_fire",
                 "type": "Spell",
-                "level": "II-L",
-                "affinity": "",
-                "rules_text": "Exile up to five of your own wizards."
+                "power": "+0"
             }
         },
         {
             "prototype": "spell_wordy",
             "count": 6,
             "parameters": {
-                "name": "Curse",
-                "image": "spell_curse",
-                "type": "Spell",
-                "level": "II",
+                "name": "Mark For Exile",
+                "image": "spell_skull",
+                "level": "I",
                 "affinity": "",
-                "rules_text": "You may play an aura on an enemy wizard."
+                "type": "Aura",
+                "rules_text": "When enchanted wizard dies, exile it."
             }
         },
         {
@@ -268,9 +298,9 @@
             "parameters": {
                 "name": "Sacrifice",
                 "image": "spell_sacrifice",
-                "type": "Spell",
                 "level": "I",
                 "affinity": "",
+                "type": "Action",
                 "rules_text": "Sacrifice a unit to draw 2 cards."
             }
         },
@@ -280,9 +310,9 @@
             "parameters": {
                 "name": "Swap",
                 "image": "spell_swap",
-                "type": "Spell",
                 "level": "II",
                 "affinity": "",
+                "type": "Action",
                 "rules_text": "Swap the positions of two of your wizards."
             }
         },
@@ -290,24 +320,48 @@
             "prototype": "spell_wordy",
             "count": 6,
             "parameters": {
-                "name": "Mark For Exile",
-                "image": "spell_skull",
-                "type": "Aura",
-                "level": "I",
+                "name": "Curse",
+                "image": "spell_curse",
+                "level": "II",
                 "affinity": "",
-                "rules_text": "When enchanted wizard dies, exile it."
+                "type": "Action",
+                "rules_text": "You may play an aura on an enemy wizard."
+            }
+        },
+        {
+            "prototype": "spell_wordy",
+            "count": 2,
+            "parameters": {
+                "name": "Culling Feast",
+                "image": "spell_swirl",
+                "level": "II-L",
+                "affinity": "",
+                "type": "Action",
+                "rules_text": "Exile up to five of your own wizards."
             }
         },
         {
             "prototype": "spell_wordy",
             "count": 6,
             "parameters": {
-                "name": "The Chosen",
-                "image": "spell_chosen",
-                "type": "Aura",
-                "level": "II",
+                "name": "Affinity",
+                "image": "spell_affinity",
+                "level": "III",
                 "affinity": "",
-                "rules_text": "When enchanted wizard dies, you may put in into your hand."
+                "type": "Action",
+                "rules_text": "Ignore your next spell's affinity."
+            }
+        },
+        {
+            "prototype": "spell_wordy",
+            "count": 6,
+            "parameters": {
+                "name": "Command",
+                "image": "spell_command",
+                "level": "III",
+                "affinity": "",
+                "type": "Action",
+                "rules_text": "Play an extra wizard."
             }
         },
         {
@@ -316,10 +370,90 @@
             "parameters": {
                 "name": "Fire Charm",
                 "image": "spell_charm_fire",
-                "type": "Aura",
                 "level": "I",
                 "affinity": "affinity_fire",
-                "rules_text": "+3 Power"
+                "type": "Aura",
+                "rules_text": "+2 Power"
+            }
+        },
+        {
+            "prototype": "spell_wordy",
+            "count": 6,
+            "parameters": {
+                "name": "Fire Charm",
+                "image": "spell_charm_fire",
+                "level": "II",
+                "affinity": "affinity_fire",
+                "type": "Aura",
+                "rules_text": "+4 Power. Your opponent may put wizards killed by this directly into their hand or bag."
+            }
+        },
+        {
+            "prototype": "spell_wordy",
+            "count": 6,
+            "parameters": {
+                "name": "The Chosen",
+                "image": "spell_chosen",
+                "level": "II",
+                "affinity": "",
+                "type": "Aura",
+                "rules_text": "When enchanted wizard dies, you may put in into your hand."
+            }
+        },
+        {
+            "prototype": "spell_wordy",
+            "count": 6,
+            "parameters": {
+                "name": "Mourner",
+                "image": "spell_mourn",
+                "level": "II",
+                "affinity": "affinity_sword",
+                "type": "Aura",
+                "rules_text": "When an adjacent wizard dies, draw a card."
+            }
+        },
+        {
+            "prototype": "spell_wordy",
+            "count": 2,
+            "parameters": {
+                "name": "Doom Touch",
+                "image": "spell_doom",
+                "level": "III-L",
+                "affinity": "affinity_sword",
+                "type": "Aura",
+                "rules_text": "Enchanted wizard exiles killed wizards."
+            }
+        },
+        {
+            "prototype": "spell_wordy",
+            "count": 2,
+            "parameters": {
+                "name": "Mind Control",
+                "image": "spell_control",
+                "level": "III-L",
+                "affinity": "affinity_lightning",
+                "type": "Aura",
+                "rules_text": "When enchanted wizard kills, put this token and the killed wizard(s) into your graveyard."
+            }
+        },
+        {
+            "prototype": "spell_wordy",
+            "count": 4,
+            "parameters": {
+                "name": "Intellect",
+                "image": "spell_draw",
+                "level": "III",
+                "affinity": "affinity_lightning",
+                "type": "Aura",
+                "rules_text": "When enchanted wizard kills, draw a card"
+            }
+        },
+        {
+            "prototype": "gold",
+            "count": 6,
+            "parameters": {
+                "name": "Treasure",
+                "image": "gold"
             }
         }
     ]

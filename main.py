@@ -40,7 +40,7 @@ def convert_value(value, parameters):
     # Convert from value to parameter if starts with *
     if value[0] == '*':
         param = value[1:]
-        return parameters[param]
+        return parameters[param] if param in parameters else ""
 
     # Normal value
     return value
@@ -155,7 +155,7 @@ def build_piece(piece, data):
             y = box["y"] if "y" in box else 0
             x2 = box["x2"] if "x2" in box else 512
             y2 = box["y2"] if "y2" in box else 512
-            text = str(convert_value(box_settings["text"], piece["parameters"]))
+            text = str(convert_value(box_settings["text"], piece["parameters"])) if "text" in box_settings else ""
 
             # Text anchoring
             anchor_map = {
