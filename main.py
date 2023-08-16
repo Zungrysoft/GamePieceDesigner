@@ -112,8 +112,8 @@ def main():
         page_height = int(data["settings"]["page_height_cm"] * pixels_per_cm)
         piece_margin = int(data["settings"]["piece_margin_cm"] * pixels_per_cm)
         edge_margin = int(data["settings"]["edge_margin_cm"] * pixels_per_cm)
-        columns_per_page = int((page_width + piece_margin) / (piece_width + piece_margin))
-        rows_per_page = int((page_height + piece_margin) / (piece_height + piece_margin))
+        columns_per_page = int(((page_width - (edge_margin*2)) + piece_margin) / (piece_width + piece_margin))
+        rows_per_page = int(((page_height - (edge_margin*2)) + piece_margin) / (piece_height + piece_margin))
         pieces_per_page = columns_per_page * rows_per_page
         pages = math.ceil(len(piece_images["front"]) / pieces_per_page)
 
@@ -140,8 +140,8 @@ def main():
                 x = j % columns_per_page
                 y = int(j / columns_per_page)
 
-                paste_x = (x * piece_width) + (x * piece_margin)
-                paste_y = (y * piece_height) + (y * piece_margin)
+                paste_x = (x * piece_width) + (x * piece_margin) + edge_margin
+                paste_y = (y * piece_height) + (y * piece_margin) + edge_margin
 
                 if piece_image_front:
                     page_image_front.paste(piece_image_front, (paste_x, paste_y), mask=piece_image_front)

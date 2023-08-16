@@ -6,8 +6,8 @@
 
         "page_width_cm": 21.59,
         "page_height_cm": 27.94,
-        "edge_margin_cm": 0.75,
-        "piece_margin_cm": 0.5,
+        "edge_margin_cm": 0.5,
+        "piece_margin_cm": 0,
 
         "image_extension": "png"
     },
