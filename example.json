@@ -12,6 +12,21 @@
         "image_extension": "png"
     },
     "image_settings": {
+        "wizard_death_1": {
+            "y": 96
+        },
+        "wizard_death_3": {
+            "y": 96
+        },
+        "wizard_any_2": {
+            "y": 96
+        },
+        "wizard_any_3": {
+            "y": 96
+        },
+        "spell_shockbolt": {
+            "y": 96
+        },
         "spell_sacrifice": {
             "y": -100
         },
@@ -34,7 +49,17 @@
             "y": -130
         },
         "spell_portal": {
-            "y": -60
+            "x": -20,
+            "y": -90
+        },
+        "spell_cycle_death": {
+            "y": -30
+        },
+        "spell_cycle_fire": {
+            "y": -100
+        },
+        "spell_strafe": {
+            "y": -100
         },
         "gold_1": {
             "x": -20,
@@ -307,6 +332,78 @@
             "prototype": "wizard",
             "count": 12,
             "parameters": {
+                "name": "Storm Acolyte",
+                "image": "wizard_storm_1",
+                "level": "I",
+                "affinity": "affinity_storm",
+                "type": "Wizard",
+                "power": "1"
+            }
+        },
+        {
+            "prototype": "wizard",
+            "count": 6,
+            "parameters": {
+                "name": "Storm Mage",
+                "image": "wizard_storm_2",
+                "level": "II",
+                "affinity": "affinity_storm",
+                "type": "Wizard",
+                "power": "4"
+            }
+        },
+        {
+            "prototype": "wizard",
+            "count": 4,
+            "parameters": {
+                "name": "Storm Savant",
+                "image": "wizard_storm_3",
+                "level": "III",
+                "affinity": "affinity_storm",
+                "type": "Wizard",
+                "power": "7"
+            }
+        },
+        {
+            "prototype": "wizard",
+            "count": 12,
+            "parameters": {
+                "name": "Death Acolyte",
+                "image": "wizard_death_1",
+                "level": "I",
+                "affinity": "affinity_death",
+                "type": "Wizard",
+                "power": "2"
+            }
+        },
+        {
+            "prototype": "wizard",
+            "count": 6,
+            "parameters": {
+                "name": "Death Mage",
+                "image": "wizard_death_2",
+                "level": "II",
+                "affinity": "affinity_death",
+                "type": "Wizard",
+                "power": "5"
+            }
+        },
+        {
+            "prototype": "wizard",
+            "count": 4,
+            "parameters": {
+                "name": "Death Savant",
+                "image": "wizard_death_3",
+                "level": "III",
+                "affinity": "affinity_death",
+                "type": "Wizard",
+                "power": "8"
+            }
+        },
+        {
+            "prototype": "wizard",
+            "count": 12,
+            "parameters": {
                 "name": "Fire Acolyte",
                 "image": "wizard_fire_1",
                 "level": "I",
@@ -317,7 +414,7 @@
         },
         {
             "prototype": "wizard",
-            "count": 8,
+            "count": 6,
             "parameters": {
                 "name": "Fire Mage",
                 "image": "wizard_fire_2",
@@ -329,7 +426,7 @@
         },
         {
             "prototype": "wizard",
-            "count": 6,
+            "count": 4,
             "parameters": {
                 "name": "Fire Savant",
                 "image": "wizard_fire_3",
@@ -341,38 +438,52 @@
         },
         {
             "prototype": "wizard",
-            "count": 12,
-            "parameters": {
-                "name": "Storm Acolyte",
-                "image": "wizard_lightning_1",
-                "level": "I",
-                "affinity": "affinity_lightning",
-                "type": "Wizard",
-                "power": "1"
-            }
-        },
-        {
-            "prototype": "wizard",
-            "count": 8,
-            "parameters": {
-                "name": "Storm Mage",
-                "image": "wizard_lightning_2",
-                "level": "II",
-                "affinity": "affinity_lightning",
-                "type": "Wizard",
-                "power": "4"
-            }
-        },
-        {
-            "prototype": "wizard",
             "count": 6,
             "parameters": {
-                "name": "Storm Savant",
-                "image": "wizard_lightning_3",
-                "level": "III",
-                "affinity": "affinity_lightning",
+                "name": "Prism Mage",
+                "image": "wizard_any_2",
+                "level": "II",
+                "affinity": "affinity_any",
                 "type": "Wizard",
-                "power": "7"
+                "power": "2"
+            }
+        },
+        {
+            "prototype": "wizard",
+            "count": 4,
+            "parameters": {
+                "name": "Prism Savant",
+                "image": "wizard_any_3",
+                "level": "III",
+                "affinity": "affinity_any",
+                "type": "Wizard",
+                "power": "5"
+            }
+        },
+        {
+            "prototype": "spell",
+            "count": 6,
+            "parameters": {
+                "name": "Bolt",
+                "image": "spell_bolt",
+                "pictogram": "pictogram_directional_2",
+                "level": "I",
+                "affinity": "",
+                "type": "Spell",
+                "power": "+0"
+            }
+        },
+        {
+            "prototype": "spell",
+            "count": 6,
+            "parameters": {
+                "name": "Wavebolt",
+                "image": "spell_shockbolt",
+                "pictogram": "pictogram_directional_1",
+                "level": "I",
+                "affinity": "",
+                "type": "Spell",
+                "power": "+2"
             }
         },
         {
@@ -402,7 +513,43 @@
         },
         {
             "prototype": "action_wordy",
-            "count": 6,
+            "count": 8,
+            "parameters": {
+                "name": "Strafe",
+                "image": "spell_strafe",
+                "level": "I",
+                "affinity": "",
+                "type": "Action",
+                "rules_text": "Draw a token. Move 1."
+            }
+        },
+        {
+            "prototype": "action_wordy",
+            "count": 8,
+            "parameters": {
+                "name": "Save",
+                "image": "spell_save",
+                "level": "I",
+                "affinity": "",
+                "type": "Action",
+                "rules_text": "Draw a token. Return up to 3 tokens from your hand to your bag."
+            }
+        },
+        {
+            "prototype": "action_wordy",
+            "count": 8,
+            "parameters": {
+                "name": "Research",
+                "image": "spell_research",
+                "level": "I",
+                "affinity": "",
+                "type": "Action",
+                "rules_text": "Draw 2 tokens, putting one into your graveyard."
+            }
+        },
+        {
+            "prototype": "action_wordy",
+            "count": 8,
             "parameters": {
                 "name": "Sacrifice",
                 "image": "spell_sacrifice",
@@ -414,7 +561,7 @@
         },
         {
             "prototype": "action_wordier",
-            "count": 6,
+            "count": 8,
             "parameters": {
                 "name": "Exchange",
                 "image": "spell_exchange",
@@ -462,43 +609,43 @@
         },
         {
             "prototype": "action_wordy",
-            "count": 2,
+            "count": 6,
             "parameters": {
                 "name": "Culling Feast",
                 "image": "spell_swirl",
-                "level": "II-L",
+                "level": "II",
                 "affinity": "",
                 "type": "Action",
-                "rules_text": "Exile up to five of your own wizards."
+                "rules_text": "Exile up to three of your own wizards."
             }
         },
         {
             "prototype": "action_wordy",
-            "count": 6,
+            "count": 4,
             "parameters": {
-                "name": "Affinity",
+                "name": "Wisdom",
                 "image": "spell_affinity",
                 "level": "III",
                 "affinity": "",
                 "type": "Action",
-                "rules_text": "Ignore your next spell's affinity."
+                "rules_text": "Ignore affinity for your next spell or aura."
             }
         },
         {
-            "prototype": "action_wordy",
-            "count": 6,
+            "prototype": "action_wordier",
+            "count": 4,
             "parameters": {
                 "name": "Command",
                 "image": "spell_command",
                 "level": "III",
                 "affinity": "",
                 "type": "Action",
-                "rules_text": "Play an extra wizard."
+                "rules_text": "Draw tokens until you draw a level II or above wizard. Play it and put the rest back."
             }
         },
         {
             "prototype": "aura_wordy",
-            "count": 6,
+            "count": 8,
             "parameters": {
                 "name": "Mark For Exile",
                 "image": "spell_skull",
@@ -510,7 +657,7 @@
         },
         {
             "prototype": "aura_wordy",
-            "count": 6,
+            "count": 8,
             "parameters": {
                 "name": "Fire Charm",
                 "image": "spell_charm_fire",
@@ -522,7 +669,7 @@
         },
         {
             "prototype": "aura_wordier",
-            "count": 6,
+            "count": 8,
             "parameters": {
                 "name": "Teleportals",
                 "image": "spell_portal",
@@ -530,18 +677,6 @@
                 "affinity": "",
                 "type": "Aura",
                 "rules_text": "When enchanted wizard casts a spell, it may move to an empty attacked space instead."
-            }
-        },
-        {
-            "prototype": "aura_wordier",
-            "count": 6,
-            "parameters": {
-                "name": "Thunder Boon",
-                "image": "spell_boon_lightning",
-                "level": "II",
-                "affinity": "affinity_lightning",
-                "type": "Aura",
-                "rules_text": "+4 Power. Your opponent may put wizards killed by this directly into their hand or bag."
             }
         },
         {
@@ -563,31 +698,79 @@
                 "name": "Mourner",
                 "image": "spell_mourn",
                 "level": "II",
-                "affinity": "affinity_sword",
+                "affinity": "affinity_death",
                 "type": "Aura",
                 "rules_text": "When an adjacent wizard dies, draw a token."
             }
         },
         {
             "prototype": "aura_wordy",
-            "count": 2,
+            "count": 6,
+            "parameters": {
+                "name": "Clone Vat",
+                "image": "spell_clone",
+                "level": "II",
+                "affinity": "",
+                "type": "Aura",
+                "rules_text": "When enchanted wizard dies, take a copy of it."
+            }
+        },
+        {
+            "prototype": "aura_wordy",
+            "count": 6,
+            "parameters": {
+                "name": "Storm Cycle",
+                "image": "spell_cycle_storm",
+                "level": "II",
+                "affinity": "affinity_storm",
+                "type": "Aura",
+                "rules_text": "When enchanted wizard kills, take a level II fire affinity token."
+            }
+        },
+        {
+            "prototype": "aura_wordy",
+            "count": 6,
+            "parameters": {
+                "name": "Fire Cycle",
+                "image": "spell_cycle_fire",
+                "level": "II",
+                "affinity": "affinity_fire",
+                "type": "Aura",
+                "rules_text": "When enchanted wizard kills, take a level II death affinity token."
+            }
+        },
+        {
+            "prototype": "aura_wordy",
+            "count": 6,
+            "parameters": {
+                "name": "Death Cycle",
+                "image": "spell_cycle_death",
+                "level": "II",
+                "affinity": "affinity_death",
+                "type": "Aura",
+                "rules_text": "When enchanted wizard kills, take a level II storm affinity token."
+            }
+        },
+        {
+            "prototype": "aura_wordy",
+            "count": 4,
             "parameters": {
                 "name": "Doom Touch",
                 "image": "spell_doom",
-                "level": "III-L",
-                "affinity": "affinity_sword",
+                "level": "III",
+                "affinity": "affinity_death",
                 "type": "Aura",
                 "rules_text": "Enchanted wizard exiles killed wizards."
             }
         },
         {
             "prototype": "aura_wordier",
-            "count": 2,
+            "count": 4,
             "parameters": {
                 "name": "Mind Control",
                 "image": "spell_control",
-                "level": "III-L",
-                "affinity": "affinity_lightning",
+                "level": "III",
+                "affinity": "affinity_storm",
                 "type": "Aura",
                 "rules_text": "When enchanted wizard kills, put this token and the killed wizard(s) into your graveyard."
             }
@@ -599,7 +782,7 @@
                 "name": "Intellect",
                 "image": "spell_draw",
                 "level": "III",
-                "affinity": "affinity_lightning",
+                "affinity": "affinity_storm",
                 "type": "Aura",
                 "rules_text": "When enchanted wizard kills, draw a token."
             }
