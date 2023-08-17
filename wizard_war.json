@@ -1,0 +1,869 @@
+{
+    "settings": {
+        "piece_width_cm": 1,
+        "piece_width_px": 512,
+        "piece_height_px": 512,
+
+        "page_width_cm": 8,
+        "page_height_cm": 10.5,
+        "edge_margin_cm": 0,
+        "piece_margin_cm": 0,
+
+        "image_extension": "png"
+    },
+    "image_settings": {
+        "wizard_earth_1": {
+            "y": 48
+        },
+        "wizard_earth_2": {
+            "y": 80
+        },
+        "wizard_earth_3": {
+            "y": 96
+        },
+        "wizard_any_2": {
+            "y": 96
+        },
+        "wizard_any_3": {
+            "y": 96
+        },
+        "spell_shockbolt": {
+            "y": 96
+        },
+        "spell_root": {
+            "x": -300,
+            "y": -80
+        },
+        "spell_fire_ring": {
+            "x": -8,
+            "y": -20
+        },
+        "spell_twisting": {
+            "y": 96
+        },
+        "spell_exile": {
+            "y": 40
+        },
+        "spell_sacrifice": {
+            "y": -100
+        },
+        "spell_skull": {
+            "y": -20
+        },
+        "spell_swap": {
+            "y": -20
+        },
+        "spell_chosen": {
+            "y": -30
+        },
+        "spell_curse": {
+            "y": 40
+        },
+        "spell_move_storm": {
+            "y": -90
+        },
+        "spell_exchange": {
+            "y": -40
+        },
+        "spell_doom": {
+            "y": -40
+        },
+        "spell_transform": {
+            "y": -130
+        },
+        "spell_portal": {
+            "x": -20,
+            "y": -90
+        },
+        "spell_move_3": {
+            "y": -130
+        },
+        "spell_move_4": {
+            "y": 50
+        },
+        "spell_cycle_death": {
+            "y": -30
+        },
+        "spell_cycle_fire": {
+            "y": -100
+        },
+        "spell_strafe": {
+            "y": -100
+        },
+        "spell_respec": {
+            "y": -90
+        },
+        "spell_boon": {
+            "y": -30
+        },
+        "gold_1": {
+            "x": -20,
+            "y": 48
+        },
+        "gold_2": {
+            "y": 96
+        },
+        "gold_3": {
+            "y": 96
+        }
+    },
+    "text_boxes": {
+        "name": {
+            "mode": "left",
+            "font_size": 50,
+            "color": "black",
+            "x": 48,
+            "y": 64
+        },
+        "level": {
+            "mode": "right",
+            "font_size":  50,
+            "color": "black",
+            "x": 464,
+            "y": 64
+        },
+        "rules": {
+            "mode": "box",
+            "font_size": 50,
+            "color": "black",
+            "x": 48,
+            "y": 336,
+            "x2": 464,
+            "y2": 416
+        },
+        "rules_wordier": {
+            "mode": "box",
+            "font_size": 50,
+            "color": "black",
+            "x": 48,
+            "y": 272,
+            "x2": 464,
+            "y2": 416
+        },
+        "rules_pictogram": {
+            "mode": "box",
+            "font_size": 50,
+            "color": "black",
+            "x": 48,
+            "y": 240,
+            "x2": 464,
+            "y2": 416
+        },
+        "type": {
+            "mode": "center",
+            "font_size": 50,
+            "color": "black",
+            "x": 256,
+            "y": 464
+        },
+        "power": {
+            "mode": "center",
+            "font_size": 50,
+            "color": "black",
+            "x": 464,
+            "y": 464
+        }
+    },
+    "prototypes": {
+        "wizard": {
+            "front": {
+                "images": ["*image", "border_black", "frame", "*affinity", "frame_type", "frame_power", "cut_line"],
+                "text_boxes": [
+                    {
+                        "type": "name",
+                        "text": "*name"
+                    },
+                    {
+                        "type": "level",
+                        "text": "*level"
+                    },
+                    {
+                        "type": "type",
+                        "text": "*type"
+                    },
+                    {
+                        "type": "power",
+                        "text": "*power"
+                    }
+                ]
+            },
+            "back": {
+                "images": ["*image", "border_white", "frame", "*affinity", "frame_type", "frame_power", "cut_line"],
+                "text_boxes": [
+                    {
+                        "type": "name",
+                        "text": "*name"
+                    },
+                    {
+                        "type": "level",
+                        "text": "*level"
+                    },
+                    {
+                        "type": "type",
+                        "text": "*type"
+                    },
+                    {
+                        "type": "power",
+                        "text": "*power"
+                    }
+                ]
+            }
+        },
+        "spell": {
+            "front": {
+                "images": ["*image", "border_grey_spell", "frame", "*pictogram", "*affinity", "frame_type", "frame_power", "cut_line"],
+                "text_boxes": [
+                    {
+                        "type": "name",
+                        "text": "*name"
+                    },
+                    {
+                        "type": "level",
+                        "text": "*level"
+                    },
+                    {
+                        "type": "type",
+                        "text": "*type"
+                    },
+                    {
+                        "type": "power",
+                        "text": "*power"
+                    },
+                    {
+                        "type": "rules_pictogram",
+                        "text": "*rules_text"
+                    }
+                ]
+            },
+            "copy_front": true
+        },
+        "action_wordy": {
+            "front": {
+                "images": ["*image", "border_grey", "frame_wordy", "*affinity", "frame_type", "cut_line"],
+                "text_boxes": [
+                    {
+                        "type": "name",
+                        "text": "*name"
+                    },
+                    {
+                        "type": "level",
+                        "text": "*level"
+                    },
+                    {
+                        "type": "type",
+                        "text": "*type"
+                    },
+                    {
+                        "type": "rules",
+                        "text": "*rules_text"
+                    }
+                ]
+            },
+            "copy_front": true
+        },
+        "action_wordier": {
+            "front": {
+                "images": ["*image", "border_grey", "frame_wordier", "*affinity", "frame_type", "cut_line"],
+                "text_boxes": [
+                    {
+                        "type": "name",
+                        "text": "*name"
+                    },
+                    {
+                        "type": "level",
+                        "text": "*level"
+                    },
+                    {
+                        "type": "type",
+                        "text": "*type"
+                    },
+                    {
+                        "type": "rules_wordier",
+                        "text": "*rules_text"
+                    }
+                ]
+            },
+            "copy_front": true
+        },
+        "aura_wordy": {
+            "front": {
+                "images": ["*image", "border_grey_aura", "frame_wordy", "*affinity", "frame_type", "cut_line"],
+                "text_boxes": [
+                    {
+                        "type": "name",
+                        "text": "*name"
+                    },
+                    {
+                        "type": "level",
+                        "text": "*level"
+                    },
+                    {
+                        "type": "type",
+                        "text": "*type"
+                    },
+                    {
+                        "type": "rules",
+                        "text": "*rules_text"
+                    }
+                ]
+            },
+            "copy_front": true
+        },
+        "aura_wordier": {
+            "front": {
+                "images": ["*image", "border_grey_aura", "frame_wordier", "*affinity", "frame_type", "cut_line"],
+                "text_boxes": [
+                    {
+                        "type": "name",
+                        "text": "*name"
+                    },
+                    {
+                        "type": "level",
+                        "text": "*level"
+                    },
+                    {
+                        "type": "type",
+                        "text": "*type"
+                    },
+                    {
+                        "type": "rules_wordier",
+                        "text": "*rules_text"
+                    }
+                ]
+            },
+            "copy_front": true
+        },
+        "gold": {
+            "front": {
+                "images": ["*image", "border_black", "frame", "frame_type", "cut_line"],
+                "text_boxes": [
+                    {
+                        "type": "name",
+                        "text": "*name"
+                    },
+                    {
+                        "type": "type",
+                        "text": "*type"
+                    }
+                ]
+            },
+            "back": {
+                "images": ["*image", "border_white", "frame", "frame_type", "cut_line"],
+                "text_boxes": [
+                    {
+                        "type": "name",
+                        "text": "*name"
+                    },
+                    {
+                        "type": "type",
+                        "text": "*type"
+                    }
+                ]
+            }
+        }
+    },
+    "pieces": [
+        {
+            "prototype": "wizard",
+            "count": 10,
+            "parameters": {
+                "name": "Storm Acolyte",
+                "image": "wizard_storm_1",
+                "level": "I",
+                "affinity": "affinity_storm",
+                "type": "Wizard",
+                "power": "1"
+            }
+        },
+        {
+            "prototype": "wizard",
+            "count": 6,
+            "parameters": {
+                "name": "Storm Mage",
+                "image": "wizard_storm_2",
+                "level": "II",
+                "affinity": "affinity_storm",
+                "type": "Wizard",
+                "power": "4"
+            }
+        },
+        {
+            "prototype": "wizard",
+            "count": 4,
+            "parameters": {
+                "name": "Storm Savant",
+                "image": "wizard_storm_3",
+                "level": "III",
+                "affinity": "affinity_storm",
+                "type": "Wizard",
+                "power": "7"
+            }
+        },
+        {
+            "prototype": "wizard",
+            "count": 10,
+            "parameters": {
+                "name": "Earth Acolyte",
+                "image": "wizard_earth_1",
+                "level": "I",
+                "affinity": "affinity_earth",
+                "type": "Wizard",
+                "power": "2"
+            }
+        },
+        {
+            "prototype": "wizard",
+            "count": 6,
+            "parameters": {
+                "name": "Earth Mage",
+                "image": "wizard_earth_2",
+                "level": "II",
+                "affinity": "affinity_earth",
+                "type": "Wizard",
+                "power": "5"
+            }
+        },
+        {
+            "prototype": "wizard",
+            "count": 4,
+            "parameters": {
+                "name": "Earth Savant",
+                "image": "wizard_earth_3",
+                "level": "III",
+                "affinity": "affinity_earth",
+                "type": "Wizard",
+                "power": "8"
+            }
+        },
+        {
+            "prototype": "wizard",
+            "count": 10,
+            "parameters": {
+                "name": "Fire Acolyte",
+                "image": "wizard_fire_1",
+                "level": "I",
+                "affinity": "affinity_fire",
+                "type": "Wizard",
+                "power": "3"
+            }
+        },
+        {
+            "prototype": "wizard",
+            "count": 6,
+            "parameters": {
+                "name": "Fire Mage",
+                "image": "wizard_fire_2",
+                "level": "II",
+                "affinity": "affinity_fire",
+                "type": "Wizard",
+                "power": "6"
+            }
+        },
+        {
+            "prototype": "wizard",
+            "count": 4,
+            "parameters": {
+                "name": "Fire Savant",
+                "image": "wizard_fire_3",
+                "level": "III",
+                "affinity": "affinity_fire",
+                "type": "Wizard",
+                "power": "9"
+            }
+        },
+        {
+            "prototype": "wizard",
+            "count": 6,
+            "parameters": {
+                "name": "Prism Mage",
+                "image": "wizard_any_2",
+                "level": "II",
+                "affinity": "affinity_any",
+                "type": "Wizard",
+                "power": "2"
+            }
+        },
+        {
+            "prototype": "spell",
+            "count": 16,
+            "parameters": {
+                "name": "Bolt",
+                "image": "spell_bolt",
+                "pictogram": "pictogram_directional_2",
+                "level": "I",
+                "affinity": "",
+                "type": "Spell",
+                "power": "+0"
+            }
+        },
+        {
+            "prototype": "spell",
+            "count": 8,
+            "parameters": {
+                "name": "Wavebolt",
+                "image": "spell_shockbolt",
+                "pictogram": "pictogram_directional_1",
+                "level": "I",
+                "affinity": "affinity_storm",
+                "type": "Spell",
+                "power": "+3"
+            }
+        },
+        {
+            "prototype": "spell",
+            "count": 8,
+            "parameters": {
+                "name": "Rootcast",
+                "image": "spell_root",
+                "pictogram": "pictogram_knight",
+                "level": "I",
+                "affinity": "affinity_earth",
+                "type": "Spell",
+                "power": "+1"
+            }
+        },
+        {
+            "prototype": "spell",
+            "count": 8,
+            "parameters": {
+                "name": "Fireball",
+                "image": "spell_fireball",
+                "pictogram": "pictogram_directional_3",
+                "level": "I",
+                "affinity": "affinity_fire",
+                "type": "Spell",
+                "power": "+1"
+            }
+        },
+        {
+            "prototype": "spell",
+            "count": 6,
+            "parameters": {
+                "name": "Shock Spear",
+                "image": "spell_spear",
+                "pictogram": "pictogram_directional_pierce_3",
+                "level": "II",
+                "affinity": "affinity_storm",
+                "type": "Spell",
+                "power": "+1"
+            }
+        },
+        {
+            "prototype": "spell",
+            "count": 6,
+            "parameters": {
+                "name": "Twisting Vine",
+                "image": "spell_twisting",
+                "pictogram": "pictogram_diagonal_pierce_2",
+                "level": "II",
+                "affinity": "affinity_earth",
+                "type": "Spell",
+                "power": "+2"
+            }
+        },
+        {
+            "prototype": "spell",
+            "count": 6,
+            "parameters": {
+                "name": "Ring of Fire",
+                "image": "spell_fire_ring",
+                "pictogram": "pictogram_radius_1",
+                "level": "II",
+                "affinity": "affinity_fire",
+                "type": "Spell",
+                "power": "+0"
+            }
+        },
+        {
+            "prototype": "action_wordy",
+            "count": 16,
+            "parameters": {
+                "name": "Move",
+                "image": "spell_move_1",
+                "level": "I",
+                "affinity": "",
+                "type": "Action",
+                "rules_text": "Move 3."
+            }
+        },
+        {
+            "prototype": "action_wordy",
+            "count": 8,
+            "parameters": {
+                "name": "Strafe",
+                "image": "spell_strafe",
+                "level": "I",
+                "affinity": "",
+                "type": "Action",
+                "rules_text": "Draw a token. Move 1."
+            }
+        },
+        {
+            "prototype": "action_wordy",
+            "count": 8,
+            "parameters": {
+                "name": "Research",
+                "image": "spell_research",
+                "level": "I",
+                "affinity": "",
+                "type": "Action",
+                "rules_text": "Draw 2 tokens and discard one of them."
+            }
+        },
+        {
+            "prototype": "action_wordy",
+            "count": 8,
+            "parameters": {
+                "name": "Sacrifice",
+                "image": "spell_sacrifice",
+                "level": "I",
+                "affinity": "",
+                "type": "Action",
+                "rules_text": "Sacrifice a wizard to draw 2 tokens."
+            }
+        },
+        {
+            "prototype": "action_wordy",
+            "count": 6,
+            "parameters": {
+                "name": "Dash",
+                "image": "spell_move_2",
+                "level": "II",
+                "affinity": "",
+                "type": "Action",
+                "rules_text": "Move 5."
+            }
+        },
+        {
+            "prototype": "action_wordy",
+            "count": 6,
+            "parameters": {
+                "name": "Tread",
+                "image": "spell_move_3",
+                "level": "II",
+                "affinity": "",
+                "type": "Action",
+                "rules_text": "Move 1 three times."
+            }
+        },
+        {
+            "prototype": "action_wordy",
+            "count": 6,
+            "parameters": {
+                "name": "Haste",
+                "image": "spell_move_storm",
+                "level": "II",
+                "affinity": "affinity_storm",
+                "type": "Action",
+                "rules_text": "Draw a token. Move 4."
+            }
+        },
+        {
+            "prototype": "action_wordier",
+            "count": 6,
+            "parameters": {
+                "name": "Respec",
+                "image": "spell_respec",
+                "level": "II",
+                "affinity": "",
+                "type": "Action",
+                "rules_text": "Exchange one of your wizards with another of the same level. (Discard no-longer-valid auras.)"
+            }
+        },
+        {
+            "prototype": "action_wordier",
+            "count": 6,
+            "parameters": {
+                "name": "Transmogrify",
+                "image": "spell_transform",
+                "level": "II",
+                "affinity": "",
+                "type": "Action",
+                "rules_text": "Exchange a token in your hand with another up to one level higher."
+            }
+        },
+        {
+            "prototype": "action_wordy",
+            "count": 6,
+            "parameters": {
+                "name": "Swap",
+                "image": "spell_swap",
+                "level": "II",
+                "affinity": "",
+                "type": "Action",
+                "rules_text": "Swap the positions of two of your wizards."
+            }
+        },
+        {
+            "prototype": "action_wordy",
+            "count": 6,
+            "parameters": {
+                "name": "Culling Feast",
+                "image": "spell_swirl",
+                "level": "II",
+                "affinity": "",
+                "type": "Action",
+                "rules_text": "Exile a token from your hand."
+            }
+        },
+        {
+            "prototype": "action_wordy",
+            "count": 4,
+            "parameters": {
+                "name": "Sprint",
+                "image": "spell_move_4",
+                "level": "III",
+                "affinity": "",
+                "type": "Action",
+                "rules_text": "Move 8."
+            }
+        },
+        {
+            "prototype": "action_wordier",
+            "count": 4,
+            "parameters": {
+                "name": "Command",
+                "image": "spell_command",
+                "level": "III",
+                "affinity": "",
+                "type": "Action",
+                "rules_text": "Draw tokens until you draw a level II or above wizard. Play it and put the rest back."
+            }
+        },
+        {
+            "prototype": "aura_wordy",
+            "count": 12,
+            "parameters": {
+                "name": "Boon",
+                "image": "spell_boon",
+                "level": "I",
+                "affinity": "",
+                "type": "Aura",
+                "rules_text": "+2 Power."
+            }
+        },
+        {
+            "prototype": "aura_wordy",
+            "count": 8,
+            "parameters": {
+                "name": "Mark For Exile",
+                "image": "spell_skull",
+                "level": "I",
+                "affinity": "",
+                "type": "Aura",
+                "rules_text": "When enchanted wizard dies, exile it."
+            }
+        },
+        {
+            "prototype": "aura_wordier",
+            "count": 8,
+            "parameters": {
+                "name": "Teleportals",
+                "image": "spell_portal",
+                "level": "I",
+                "affinity": "",
+                "type": "Aura",
+                "rules_text": "When enchanted wizard casts a spell, it may move to an empty attacked space instead."
+            }
+        },
+        {
+            "prototype": "aura_wordy",
+            "count": 6,
+            "parameters": {
+                "name": "Fire Charm",
+                "image": "spell_charm_fire",
+                "level": "II",
+                "affinity": "affinity_fire",
+                "type": "Aura",
+                "rules_text": "+4 Power"
+            }
+        },
+        {
+            "prototype": "aura_wordy",
+            "count": 6,
+            "parameters": {
+                "name": "Mourn",
+                "image": "spell_mourn",
+                "level": "II",
+                "affinity": "affinity_earth",
+                "type": "Aura",
+                "rules_text": "When an adjacent wizard dies, draw a token."
+            }
+        },
+        {
+            "prototype": "aura_wordy",
+            "count": 4,
+            "parameters": {
+                "name": "Ashes to Ashes",
+                "image": "spell_doom",
+                "level": "III",
+                "affinity": "affinity_earth",
+                "type": "Aura",
+                "rules_text": "Enchanted wizard exiles killed wizards."
+            }
+        },
+        {
+            "prototype": "aura_wordy",
+            "count": 4,
+            "parameters": {
+                "name": "Dust to Dust",
+                "image": "spell_exile",
+                "level": "III",
+                "affinity": "affinity_fire",
+                "type": "Aura",
+                "rules_text": "When enchanted wizard kills, draw a token. Exile it, discard it, or put it back."
+            }
+        },
+        {
+            "prototype": "aura_wordy",
+            "count": 4,
+            "parameters": {
+                "name": "Intellect",
+                "image": "spell_draw",
+                "level": "III",
+                "affinity": "affinity_storm",
+                "type": "Aura",
+                "rules_text": "When enchanted wizard kills, draw a token."
+            }
+        },
+        {
+            "prototype": "aura_wordy",
+            "count": 4,
+            "parameters": {
+                "name": "Wisdom",
+                "image": "spell_affinity",
+                "level": "III",
+                "affinity": "",
+                "type": "Aura",
+                "rules_text": "Enchanted wizard has affinity for all types."
+            }
+        },
+        {
+            "prototype": "gold",
+            "count": 8,
+            "parameters": {
+                "name": "Gold Coin",
+                "image": "gold_1",
+                "type": "Buy I"
+            }
+        },
+        {
+            "prototype": "gold",
+            "count": 8,
+            "parameters": {
+                "name": "Chest of Gold",
+                "image": "gold_2",
+                "type": "Buy II"
+            }
+        },
+        {
+            "prototype": "gold",
+            "count": 6,
+            "parameters": {
+                "name": "Horde of Gold",
+                "image": "gold_3",
+                "type": "Buy III"
+            }
+        }
+    ]
+}
