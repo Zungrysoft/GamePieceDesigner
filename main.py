@@ -223,8 +223,8 @@ def main():
         pages = math.ceil(len(piece_images["front"]) / pieces_per_page)
 
         # Arrange images on page
-        print("Arranging final layout...")
         for i in range(pages):
+            print(f"Arranging page {i+1}...")
             # Create page image
             page_image_front = Image.new('RGBA', (page_width, page_height))
             page_image_back = Image.new('RGBA', (page_width, page_height))

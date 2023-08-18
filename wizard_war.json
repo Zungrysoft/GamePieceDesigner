@@ -42,7 +42,10 @@
             "y": 96
         },
         "spell_exile": {
-            "y": 40
+            "y": 15
+        },
+        "spell_magnet": {
+            "y": 96
         },
         "spell_sacrifice": {
             "y": -100
@@ -64,6 +67,12 @@
         },
         "spell_exchange": {
             "y": -40
+        },
+        "spell_purity": {
+            "y": -50
+        },
+        "spell_gate": {
+            "y": -196
         },
         "spell_doom": {
             "y": -40
@@ -105,6 +114,18 @@
         },
         "gold_3": {
             "y": 96
+        },
+        "tome_1": {
+            "x": 30,
+            "y": -30
+        },
+        "tome_2": {
+            "x": -25,
+            "y": -30
+        },
+        "tome_3": {
+            "x": -30,
+            "y": -30
         }
     },
     "text_boxes": {
@@ -333,13 +354,17 @@
             },
             "copy_front": true
         },
-        "gold": {
+        "tome": {
             "front": {
                 "images": ["*image", "border_black", "frame", "frame_type", "cut_line"],
                 "text_boxes": [
                     {
                         "type": "name",
                         "text": "*name"
+                    },
+                    {
+                        "type": "level",
+                        "text": "*level"
                     },
                     {
                         "type": "type",
@@ -353,6 +378,10 @@
                     {
                         "type": "name",
                         "text": "*name"
+                    },
+                    {
+                        "type": "level",
+                        "text": "*level"
                     },
                     {
                         "type": "type",
@@ -602,12 +631,12 @@
             "prototype": "action_wordy",
             "count": 8,
             "parameters": {
-                "name": "Research",
-                "image": "spell_research",
+                "name": "Insight",
+                "image": "spell_insight",
                 "level": "I",
                 "affinity": "",
                 "type": "Action",
-                "rules_text": "Draw 2 tokens and discard one of them."
+                "rules_text": "Draw 2 tokens. Discard one of them."
             }
         },
         {
@@ -619,7 +648,7 @@
                 "level": "I",
                 "affinity": "",
                 "type": "Action",
-                "rules_text": "Sacrifice a wizard to draw 2 tokens."
+                "rules_text": "Sacrifice a wizard to draw 3 tokens."
             }
         },
         {
@@ -647,18 +676,6 @@
             }
         },
         {
-            "prototype": "action_wordy",
-            "count": 6,
-            "parameters": {
-                "name": "Haste",
-                "image": "spell_move_storm",
-                "level": "II",
-                "affinity": "affinity_storm",
-                "type": "Action",
-                "rules_text": "Draw a token. Move 4."
-            }
-        },
-        {
             "prototype": "action_wordier",
             "count": 6,
             "parameters": {
@@ -679,7 +696,7 @@
                 "level": "II",
                 "affinity": "",
                 "type": "Action",
-                "rules_text": "Exchange a token in your hand with another up to one level higher."
+                "rules_text": "Exile a token from your hand to take a token up to one level higher."
             }
         },
         {
@@ -704,6 +721,30 @@
                 "affinity": "",
                 "type": "Action",
                 "rules_text": "Exile a token from your hand."
+            }
+        },
+        {
+            "prototype": "action_wordy",
+            "count": 6,
+            "parameters": {
+                "name": "Haste",
+                "image": "spell_move_storm",
+                "level": "II",
+                "affinity": "affinity_storm",
+                "type": "Action",
+                "rules_text": "Draw a token. Move 4."
+            }
+        },
+        {
+            "prototype": "action_wordy",
+            "count": 6,
+            "parameters": {
+                "name": "Translocate",
+                "image": "spell_gate",
+                "level": "II",
+                "affinity": "affinity_fire",
+                "type": "Action",
+                "rules_text": "Move 3. Ignore blocking obstacles."
             }
         },
         {
@@ -763,19 +804,43 @@
                 "level": "I",
                 "affinity": "",
                 "type": "Aura",
-                "rules_text": "When enchanted wizard casts a spell, it may move to an empty attacked space instead."
+                "rules_text": "After enchanted wizard casts a spell, you may move it into an empty space it attacked."
+            }
+        },
+        {
+            "prototype": "aura_wordy",
+            "count": 8,
+            "parameters": {
+                "name": "Gust of Wind",
+                "image": "spell_wind",
+                "level": "I",
+                "affinity": "affinity_storm",
+                "type": "Aura",
+                "rules_text": "+3 Power on your turn. Spell effect: Move target 3."
             }
         },
         {
             "prototype": "aura_wordy",
             "count": 6,
             "parameters": {
-                "name": "Fire Charm",
-                "image": "spell_charm_fire",
+                "name": "Magnetic Grip",
+                "image": "spell_magnet",
                 "level": "II",
-                "affinity": "affinity_fire",
+                "affinity": "affinity_storm",
                 "type": "Aura",
-                "rules_text": "+4 Power"
+                "rules_text": "-3 Power. Enchanted wizard may collect tomes by attacking them."
+            }
+        },
+        {
+            "prototype": "aura_wordier",
+            "count": 6,
+            "parameters": {
+                "name": "Purity",
+                "image": "spell_purity",
+                "level": "II",
+                "affinity": "affinity_earth",
+                "type": "Aura",
+                "rules_text": "Whenever enchanted wizard damages a wizard, its owner removes an aura from it."
             }
         },
         {
@@ -792,26 +857,14 @@
         },
         {
             "prototype": "aura_wordy",
-            "count": 4,
+            "count": 6,
             "parameters": {
-                "name": "Ashes to Ashes",
-                "image": "spell_doom",
-                "level": "III",
-                "affinity": "affinity_earth",
-                "type": "Aura",
-                "rules_text": "Enchanted wizard exiles killed wizards."
-            }
-        },
-        {
-            "prototype": "aura_wordy",
-            "count": 4,
-            "parameters": {
-                "name": "Dust to Dust",
-                "image": "spell_exile",
-                "level": "III",
+                "name": "Fire Charm",
+                "image": "spell_charm_fire",
+                "level": "II",
                 "affinity": "affinity_fire",
                 "type": "Aura",
-                "rules_text": "When enchanted wizard kills, draw a token. Exile it, discard it, or put it back."
+                "rules_text": "+4 Power"
             }
         },
         {
@@ -830,6 +883,30 @@
             "prototype": "aura_wordy",
             "count": 4,
             "parameters": {
+                "name": "Ashes to Ashes",
+                "image": "spell_doom",
+                "level": "III",
+                "affinity": "affinity_earth",
+                "type": "Aura",
+                "rules_text": "Enchanted wizard exiles killed wizards."
+            }
+        },
+        {
+            "prototype": "aura_wordier",
+            "count": 4,
+            "parameters": {
+                "name": "Dust to Dust",
+                "image": "spell_exile",
+                "level": "III",
+                "affinity": "affinity_fire",
+                "type": "Aura",
+                "rules_text": "When enchanted wizard kills, draw a token. Exile it, discard it, or put it back."
+            }
+        },
+        {
+            "prototype": "aura_wordy",
+            "count": 4,
+            "parameters": {
                 "name": "Wisdom",
                 "image": "spell_affinity",
                 "level": "III",
@@ -839,30 +916,33 @@
             }
         },
         {
-            "prototype": "gold",
+            "prototype": "tome",
             "count": 8,
             "parameters": {
-                "name": "Gold Coin",
-                "image": "gold_1",
-                "type": "Buy I"
+                "name": "Basic Tome",
+                "image": "tome_1",
+                "level": "I",
+                "type": "Tome"
             }
         },
         {
-            "prototype": "gold",
+            "prototype": "tome",
             "count": 8,
             "parameters": {
-                "name": "Chest of Gold",
-                "image": "gold_2",
-                "type": "Buy II"
+                "name": "Fabled Tome",
+                "image": "tome_2",
+                "level": "II",
+                "type": "Tome"
             }
         },
         {
-            "prototype": "gold",
+            "prototype": "tome",
             "count": 6,
             "parameters": {
-                "name": "Horde of Gold",
-                "image": "gold_3",
-                "type": "Buy III"
+                "name": "Mythic Tome",
+                "image": "tome_3",
+                "level": "III",
+                "type": "Tome"
             }
         }
     ]
