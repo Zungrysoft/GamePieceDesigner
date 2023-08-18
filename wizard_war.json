@@ -34,6 +34,9 @@
             "x": -300,
             "y": -80
         },
+        "spell_brilliance": {
+            "y": -40
+        },
         "spell_fire_ring": {
             "x": -8,
             "y": -20
@@ -529,13 +532,13 @@
             "prototype": "spell",
             "count": 8,
             "parameters": {
-                "name": "Wavebolt",
-                "image": "spell_shockbolt",
-                "pictogram": "pictogram_directional_1",
+                "name": "Shock Spear",
+                "image": "spell_spear",
+                "pictogram": "pictogram_directional_pierce_3",
                 "level": "I",
                 "affinity": "affinity_storm",
                 "type": "Spell",
-                "power": "+3"
+                "power": "+0"
             }
         },
         {
@@ -548,7 +551,7 @@
                 "level": "I",
                 "affinity": "affinity_earth",
                 "type": "Spell",
-                "power": "+1"
+                "power": "+0"
             }
         },
         {
@@ -557,24 +560,24 @@
             "parameters": {
                 "name": "Fireball",
                 "image": "spell_fireball",
-                "pictogram": "pictogram_directional_3",
+                "pictogram": "pictogram_directional_4",
                 "level": "I",
                 "affinity": "affinity_fire",
                 "type": "Spell",
-                "power": "+1"
+                "power": "+0"
             }
         },
         {
             "prototype": "spell",
             "count": 6,
             "parameters": {
-                "name": "Shock Spear",
-                "image": "spell_spear",
-                "pictogram": "pictogram_directional_pierce_3",
+                "name": "Wavebolt",
+                "image": "spell_shockbolt",
+                "pictogram": "pictogram_directional_1",
                 "level": "II",
                 "affinity": "affinity_storm",
                 "type": "Spell",
-                "power": "+1"
+                "power": "+3"
             }
         },
         {
@@ -587,7 +590,7 @@
                 "level": "II",
                 "affinity": "affinity_earth",
                 "type": "Spell",
-                "power": "+2"
+                "power": "+1"
             }
         },
         {
@@ -612,7 +615,7 @@
                 "level": "I",
                 "affinity": "",
                 "type": "Action",
-                "rules_text": "Move 3."
+                "rules_text": "Move 2x2."
             }
         },
         {
@@ -624,7 +627,7 @@
                 "level": "I",
                 "affinity": "",
                 "type": "Action",
-                "rules_text": "Draw a token. Move 1."
+                "rules_text": "Move 2x1. Draw a token."
             }
         },
         {
@@ -660,7 +663,7 @@
                 "level": "II",
                 "affinity": "",
                 "type": "Action",
-                "rules_text": "Move 5."
+                "rules_text": "Move 3x3."
             }
         },
         {
@@ -672,19 +675,7 @@
                 "level": "II",
                 "affinity": "",
                 "type": "Action",
-                "rules_text": "Move 1 three times."
-            }
-        },
-        {
-            "prototype": "action_wordier",
-            "count": 6,
-            "parameters": {
-                "name": "Respec",
-                "image": "spell_respec",
-                "level": "II",
-                "affinity": "",
-                "type": "Action",
-                "rules_text": "Exchange one of your wizards with another of the same level. (Discard no-longer-valid auras.)"
+                "rules_text": "Move 5x1"
             }
         },
         {
@@ -696,7 +687,7 @@
                 "level": "II",
                 "affinity": "",
                 "type": "Action",
-                "rules_text": "Exile a token from your hand to take a token up to one level higher."
+                "rules_text": "Exile a token from your hand to take a different token of the same level."
             }
         },
         {
@@ -720,7 +711,7 @@
                 "level": "II",
                 "affinity": "",
                 "type": "Action",
-                "rules_text": "Exile a token from your hand."
+                "rules_text": "Exile two tokens from your hand."
             }
         },
         {
@@ -732,7 +723,7 @@
                 "level": "II",
                 "affinity": "affinity_storm",
                 "type": "Action",
-                "rules_text": "Draw a token. Move 4."
+                "rules_text": "Move 1x4. Draw a token."
             }
         },
         {
@@ -744,7 +735,7 @@
                 "level": "II",
                 "affinity": "affinity_fire",
                 "type": "Action",
-                "rules_text": "Move 3. Ignore blocking obstacles."
+                "rules_text": "Move 2x4. Ignore blocking obstacles."
             }
         },
         {
@@ -756,7 +747,7 @@
                 "level": "III",
                 "affinity": "",
                 "type": "Action",
-                "rules_text": "Move 8."
+                "rules_text": "Move 1x7."
             }
         },
         {
@@ -768,7 +759,7 @@
                 "level": "III",
                 "affinity": "",
                 "type": "Action",
-                "rules_text": "Draw tokens until you draw a level II or above wizard. Play it and put the rest back."
+                "rules_text": "Draw seven tokens. Play any number of wizards from among them and put the rest back."
             }
         },
         {
@@ -780,7 +771,7 @@
                 "level": "I",
                 "affinity": "",
                 "type": "Aura",
-                "rules_text": "+2 Power."
+                "rules_text": "+1 Power."
             }
         },
         {
@@ -792,7 +783,7 @@
                 "level": "I",
                 "affinity": "",
                 "type": "Aura",
-                "rules_text": "When enchanted wizard dies, exile it."
+                "rules_text": "When enchanted wizard dies, exile it and draw a token."
             }
         },
         {
@@ -808,15 +799,27 @@
             }
         },
         {
-            "prototype": "aura_wordy",
+            "prototype": "aura_wordier",
             "count": 8,
             "parameters": {
-                "name": "Gust of Wind",
-                "image": "spell_wind",
+                "name": "Purity",
+                "image": "spell_purity",
                 "level": "I",
-                "affinity": "affinity_storm",
+                "affinity": "affinity_earth",
                 "type": "Aura",
-                "rules_text": "+3 Power on your turn. Spell effect: Move target 3."
+                "rules_text": "Whenever enchanted wizard attacks a wizard but does not kill it, its owner removes an aura from it."
+            }
+        },
+        {
+            "prototype": "aura_wordier",
+            "count": 6,
+            "parameters": {
+                "name": "Ashes to Ashes",
+                "image": "spell_exile",
+                "level": "II",
+                "affinity": "affinity_earth",
+                "type": "Aura",
+                "rules_text": "When enchanted wizard kills, draw five tokens. Exile any number and put the rest back."
             }
         },
         {
@@ -832,15 +835,15 @@
             }
         },
         {
-            "prototype": "aura_wordier",
+            "prototype": "aura_wordy",
             "count": 6,
             "parameters": {
-                "name": "Purity",
-                "image": "spell_purity",
+                "name": "Intellect",
+                "image": "spell_draw",
                 "level": "II",
-                "affinity": "affinity_earth",
+                "affinity": "affinity_storm",
                 "type": "Aura",
-                "rules_text": "Whenever enchanted wizard damages a wizard, its owner removes an aura from it."
+                "rules_text": "When enchanted wizard kills, draw a token."
             }
         },
         {
@@ -852,7 +855,7 @@
                 "level": "II",
                 "affinity": "affinity_earth",
                 "type": "Aura",
-                "rules_text": "When an adjacent wizard dies, draw a token."
+                "rules_text": "When an adjacent allied wizard dies, draw a token."
             }
         },
         {
@@ -864,43 +867,31 @@
                 "level": "II",
                 "affinity": "affinity_fire",
                 "type": "Aura",
-                "rules_text": "+4 Power"
+                "rules_text": "+2 Power"
             }
         },
         {
             "prototype": "aura_wordy",
             "count": 4,
             "parameters": {
-                "name": "Intellect",
-                "image": "spell_draw",
+                "name": "Brilliance",
+                "image": "spell_brilliance",
                 "level": "III",
                 "affinity": "affinity_storm",
                 "type": "Aura",
-                "rules_text": "When enchanted wizard kills, draw a token."
+                "rules_text": "When enchanted wizard kills, draw 3 tokens."
             }
         },
         {
             "prototype": "aura_wordy",
             "count": 4,
             "parameters": {
-                "name": "Ashes to Ashes",
+                "name": "Dust to Dust",
                 "image": "spell_doom",
                 "level": "III",
                 "affinity": "affinity_earth",
                 "type": "Aura",
                 "rules_text": "Enchanted wizard exiles killed wizards."
-            }
-        },
-        {
-            "prototype": "aura_wordier",
-            "count": 4,
-            "parameters": {
-                "name": "Dust to Dust",
-                "image": "spell_exile",
-                "level": "III",
-                "affinity": "affinity_fire",
-                "type": "Aura",
-                "rules_text": "When enchanted wizard kills, draw a token. Exile it, discard it, or put it back."
             }
         },
         {
